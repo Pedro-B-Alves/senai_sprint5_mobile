@@ -6,8 +6,3 @@ export const api = axios.create({
     // Define a URL base para as requisições à API
     baseURL : 'http://localhost:5000/api'
 });
-
-export const sair = () => {
-    localStorage.removeItem('usuario-login');
-    this.props.navigation.navigate('Login');
-}

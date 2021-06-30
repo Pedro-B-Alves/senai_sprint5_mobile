@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { sair, api } from '../services/api';
+import { api } from '../services/api';
 
 export default class Listagem extends Component {
     constructor(props){
@@ -15,6 +15,11 @@ export default class Listagem extends Component {
         const resposta = await api.get('/consultums');
         this.setState({ consulta : resposta.data })
         console.log(this.state.consulta)
+    }
+
+    sair = () => {
+        localStorage.removeItem('usuario-login');
+        this.props.navigation.navigate('Login');
     }
 
     componentDidMount() {
@@ -32,7 +37,7 @@ export default class Listagem extends Component {
                     <View>
                         <View style={styles.parteSuperiorDireita}>
                             <TouchableOpacity>
-                                <Text style={styles.edicaoLink} onPress={() => sair()}>Sair</Text>
+                                <Text style={styles.edicaoLink} onPress={() => this.sair()}>Sair</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
