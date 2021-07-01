@@ -12,7 +12,7 @@ export default class Listagem extends Component {
     }
 
     buscarConsulta = async () => {
-        const resposta = await api.get('/consultums');
+        const resposta = await api.get('/Consultums');
         this.setState({ consulta : resposta.data })
         console.log(this.state.consulta)
     }
@@ -71,7 +71,7 @@ export default class Listagem extends Component {
             <Text style={styles.flatItemTitle}>{item.IdConsulta}</Text>
             <Text style={styles.flatItemInfo}>{item.IdPaciente}</Text>
             <Text style={styles.flatItemInfo}>{item.IdMedico}</Text>
-            <Text style={styles.flatItemInfo}>{Intl.DateTimeFormat('pt-BR').format(new Date(item.DataAgendamento))}</Text>
+            {/* <Text style={styles.flatItemInfo}>{Intl.DateTimeFormat('pt-BR').format(new Date(item.DataAgendamento))}</Text> */}
             <Text style={styles.flatItemInfo}>{item.Situacao}</Text>
           </View>
         </View>
@@ -105,8 +105,7 @@ const styles = StyleSheet.create({
     edicaoLink: {
         fontSize: 18,
         fontFamily: 'Times New Roman',
-        color: '#3582FF',
-        textDecoration: 'none'
+        color: '#3582FF'
     },
     
     imgLogo: {

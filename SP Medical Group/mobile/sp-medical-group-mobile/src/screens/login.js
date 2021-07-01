@@ -16,7 +16,7 @@ export default class Login extends Component {
     realizarLogin = async () => {
         console.warn( this.state.email + ' ' + this.state.senha );
 
-        const resposta = await api.post('/login', {
+        const resposta = await api.post('/Login', {
             email : this.state.email,
             senha : this.state.senha
         });
@@ -26,12 +26,8 @@ export default class Login extends Component {
 
         await AsyncStorage.setItem('userToken', token);
 
-        this.props
+        this.props.navigation.navigate('Listagem');
     };
-
-    login = () => {
-        //this.props.navigation.navigate('Listagem')
-    }
 
     render(){
         return (
@@ -61,7 +57,7 @@ export default class Login extends Component {
                                     <TextInput style={styles.input} secureTextEntry={true} onChangeText={senha => this.setState({ senha })}/>
                                 </View>
                                 <View style={styles.posicaoBotao}>
-                                    <TouchableOpacity style={styles.botao}>Entrar</TouchableOpacity>
+                                    <TouchableOpacity style={styles.botao} onPress={() => this.realizarLogin()}>Entrar</TouchableOpacity>
                                 </View>
                             </View>
                         </View>
