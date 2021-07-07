@@ -13,8 +13,8 @@ export default function Stack(){
       <AuthStack.Navigator
         headerMode = 'none'
       >
-        <AuthStack.Screen name = 'Login' component={Login} />
         <AuthStack.Screen name = 'Listagem' component={Listagem} />
+        <AuthStack.Screen name = 'Login' component={Login} />
       </AuthStack.Navigator>
     </NavigationContainer>
   )

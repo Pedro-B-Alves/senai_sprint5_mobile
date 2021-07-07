@@ -50,10 +50,10 @@ export default class Listagem extends Component {
                                 <Text style={styles.textoListagem}>Listagem de consultas</Text>
                             </View>
                             <View style={styles.mainBody}>
-                                <FlatList 
-                                    contentContainerStyle={styles.mainBodyContent}
-                                    data={ this.state.consulta }
-                                    keyExtractor={ item => item.IdConsulta }
+                                <FlatList
+                                    contentConteinerStyle={styles.mainBodyContent}
+                                    data={this.state.consulta}
+                                    keyExtractor={item=>item.idConsulta}
                                     renderItem={this.renderItem}
                                 />
                             </View>
@@ -64,18 +64,17 @@ export default class Listagem extends Component {
         );
     }
 
-    renderItem = ({ item }) => (
-    
+    renderItem = ({item}) => (
         <View style={styles.flatItemRow}>
-          <View style={styles.flatItemContainer}>
-            <Text style={styles.flatItemTitle}>{item.IdConsulta}</Text>
-            <Text style={styles.flatItemInfo}>{item.IdPaciente}</Text>
-            <Text style={styles.flatItemInfo}>{item.IdMedico}</Text>
-            {/* <Text style={styles.flatItemInfo}>{Intl.DateTimeFormat('pt-BR').format(new Date(item.DataAgendamento))}</Text> */}
-            <Text style={styles.flatItemInfo}>{item.Situacao}</Text>
-          </View>
+            <View style={styles.flatItemContainer}>
+                <Text style={styles.flatItemTitle}>ID Consulta: {item.idConsulta}</Text>
+                <Text style={styles.flatItemInfo}>ID Paciente: {item.idPaciente}</Text>
+                <Text style={styles.flatItemInfo}>ID Médico: {item.idMedico}</Text>
+                <Text style={styles.flatItemInfo}>Data Agendamento: {Intl.DateTimeFormat('pt-BR').format(new Date(item.dataAgendamento))}</Text>
+                <Text style={styles.flatItemInfo}>Situação: {item.situacao}</Text>
+            </View>
         </View>
-      )
+    )
 }
 
 const styles = StyleSheet.create({
@@ -122,8 +121,8 @@ const styles = StyleSheet.create({
     
     medicoListagem: {
         width: 414,
-        height: 759,
-        justifyContent: 'center',
+        height: 1080,
+        paddingTop: 50,
         alignItems: 'center'
     },
 
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
     
     blocoListagem: {
         width: 341,
-        height: 'auto'
+        height: 750
     },
     
     tamanhoBloco: {
@@ -154,5 +153,28 @@ const styles = StyleSheet.create({
     textoListagem: {
         fontSize: 18,
         paddingLeft: 80
-    }
+    },
+
+    flatItemRow: {
+        flexDirection: 'row',
+        borderBottomWidth: 1,
+        borderBottomColor: '#000000',
+        marginTop: 20
+      },
+      flatItemContainer: {
+          width: 295,
+          height: 'auto',
+          alignItems: 'center',
+          justifyContent: 'center'
+      },
+      flatItemTitle: {
+        fontSize: 16,
+        color: '#000000',
+        fontFamily: 'Open Sans Light'
+      },
+      flatItemInfo: {
+        fontSize: 12,
+        color: '#000000',
+        lineHeight: 24
+      }
 });
