@@ -84,11 +84,12 @@ export default function Listagem() {
                                             {
                                                 consulta.map( (itensConsulta) => {
                                                     return (
-                                                        <tr key={itensConsulta.IdConsulta}>
-                                                            <td>{itensConsulta.IdPaciente}</td>
-                                                            <td>{itensConsulta.IdMedico}</td>
-                                                            <td>{itensConsulta.DataAgendamento}</td>
-                                                            <td>{itensConsulta.Situacao}</td>
+                                                        <tr key={itensConsulta.idConsulta}>
+                                                            <td>{itensConsulta.idConsulta}</td>
+                                                            <td>{itensConsulta.idPaciente}</td>
+                                                            <td>{itensConsulta.idMedico}</td>
+                                                            <td>{Intl.DateTimeFormat("pt-BR").format(new Date(itensConsulta.dataAgendamento))}</td>
+                                                            <td>{itensConsulta.situacao}</td>
                                                         </tr>
                                                     );
                                                 })
