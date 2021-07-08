@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import "../assets/CSS/Login.css";
@@ -85,13 +85,21 @@ export default function App() {
       setSenha(campo.target.value)
     };
 
+    const sair = () => {
+      if (localStorage.getItem('usuario-login')) {
+        localStorage.removeItem('usuario-login');
+      }
+    }
+
+    useEffect( sair, [] );
+
   return (
     <div>
       <div>
           <section>
                 <div className="parteSuperior">
-                    <Link to="/"><img class="imgLogo" src={logo} alt="Logo SP Medical Group"/></Link>
-                    <Link to="/"><img class="imgTexto" src={logoTexto} alt="SP Medical Group"/></Link>
+                    <Link to="/"><img className="imgLogo" src={logo} alt="Logo SP Medical Group"/></Link>
+                    <Link to="/"><img className="imgTexto" src={logoTexto} alt="SP Medical Group"/></Link>
                 </div>
           </section>
       </div>
@@ -111,7 +119,7 @@ export default function App() {
                   </div>
                   <br/>
                   <div>
-                    <div class="posicaoSenha">
+                    <div className="posicaoSenha">
                       <p className="textoDoLogin">Senha</p>
                       <Link to="/" className="textoDoLogin">Esqueceu?</Link>
                     </div>

@@ -45,8 +45,8 @@ export default function Listagem() {
                 <section>
                     <div className="parteSuperiorListagem">
                         <div className="ajuste">
-                            <Link to="/"><img class="imgLogo" src={logo} alt="Logo SP Medical Group"/></Link>
-                            <Link to="/"><img class="imgTexto" src={logoTexto} alt="SP Medical Group"/></Link>
+                            <Link to="/"><img className="imgLogo" src={logo} alt="Logo SP Medical Group"/></Link>
+                            <Link to="/"><img className="imgTexto" src={logoTexto} alt="SP Medical Group"/></Link>
                         </div>
                         <div className="parteSuperiorDireita">
                             <div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 
 import { api } from '../services/api';
 
@@ -28,7 +28,7 @@ export default class Listagem extends Component {
 
     render(){
         return (
-            <View>
+            <ScrollView>
                 <View style={styles.parteSuperiorListagem}>
                     <View style={styles.ajuste}>
                         <Image style={styles.imgLogo} source={require('../../assets/logo_spmedgroup_v2 1.png')}/>
@@ -60,7 +60,7 @@ export default class Listagem extends Component {
                         </View>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     
     medicoListagem: {
         width: 414,
-        height: 1080,
+        paddingBottom: '26%',
         paddingTop: 50,
         alignItems: 'center'
     },
