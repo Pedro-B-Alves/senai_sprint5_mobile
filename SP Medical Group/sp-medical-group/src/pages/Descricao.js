@@ -20,7 +20,7 @@ export default function Descricao() {
 
         setIsLoading( true );
         
-        let urlGet = 'http://localhost:5000/api/consultums/' + {idconsulta};
+        let urlGet = (`http://localhost:5000/api/consultums/${idconsulta}`);
 
         axios(urlGet, {
             idPaciente : idPaciente,
@@ -38,11 +38,14 @@ export default function Descricao() {
             };
         })
 
-        .catch(erro => console.log(erro));
+        .catch(erro => console.log(erro)
+            ,console.log('Erro ao obter os dados')
+            ,console.log(urlGet)
+        );
 
-        let urlPost = 'http://localhost:5000/api/consultums/'+{idconsulta};
+        let urlPost = (`http://localhost:5000/api/consultums/${idconsulta}`);
 
-        axios.post(urlPost, {
+        axios.put(urlPost, {
             idPaciente : idPaciente,
             idMedico : idMedico,
             dataAgendamento : data,
@@ -50,13 +53,16 @@ export default function Descricao() {
         })
 
         .then(resposta => {
-            if (resposta.status === 201) {
-                console.log('Consulta cadastrada!');
+            if (resposta.status === 204) {
+                console.log('Consulta atualizada!');
                 setIsLoading( false );
             }
         })
 
-        .catch(erro => console.log(erro));
+        .catch(erro => console.log(erro)
+            ,console.log('Erro ao atualizar')
+            ,console.log(urlPost)
+        );
 
     }
 
